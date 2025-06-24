@@ -2,11 +2,14 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { blogs } from "../page";
 
-interface BlogPageProps {
-  params: { slug: string };
-}
+type Props = {
+  params: {
+    slug: string;
+  };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
-export default function BlogDetailPage({ params }: BlogPageProps) {
+export default function BlogDetailPage({ params }: Props) {
   const blog = blogs.find((b) => b.slug === params.slug);
   if (!blog) return notFound();
   return (
