@@ -16,7 +16,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogDetailPage({ params }: PageProps) {
+export default function BlogDetailPage({ params }: PageProps) {
   const blog = blogs.find((b) => b.slug === params.slug);
   if (!blog) return notFound();
 
@@ -36,4 +36,4 @@ export default async function BlogDetailPage({ params }: PageProps) {
       </article>
     </div>
   );
-} 
+}
